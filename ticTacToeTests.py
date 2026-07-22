@@ -1,6 +1,6 @@
 import unittest
 
-from ticTacToe import (askToPlayAgain, boardIsFull, checkWinner, getPlayerMove, playMultipleGames,)
+from ticTacToe import (askToPlayAgain, boardIsFull, checkWinner, getPlayerMove, playMultipleGames)
 
 class FakeInput:
     def __init__(self, responses):
@@ -87,7 +87,7 @@ class TestReplayValidation(unittest.TestCase):
 
         result = askToPlayAgain(input_func=fakeIn, output_func=self.fakeOutput)
         self.assertTrue(result)
-        self.assertIn("Please enter y or n.", self.output)
+        self.assertIn("Please enter y/yes or n/no.", self.output)
 
 class TestMultipleGames(unittest.TestCase):
 
@@ -97,9 +97,9 @@ class TestMultipleGames(unittest.TestCase):
         fakeIn = FakeInput(responses)
         output = []
 
-        games_played = playMultipleGames(input_func=fakeIn, output_func=output.append)
+        gamesPlayed = playMultipleGames(input_func=fakeIn, output_func=output.append)
 
-        self.assertEqual(games_played, 2)
+        self.assertEqual(gamesPlayed, 2)
         self.assertIn("Player X wins!", output)
         self.assertIn("Player O wins!", output)
 
@@ -109,9 +109,9 @@ class TestMultipleGames(unittest.TestCase):
         fakeIn = FakeInput(responses)
         output = []
 
-        games_played = playMultipleGames(input_func=fakeIn, output_func=output.append)
+        gamesPlayed = playMultipleGames(input_func=fakeIn, output_func=output.append)
 
-        self.assertEqual(games_played, 1)
+        self.assertEqual(gamesPlayed, 1)
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

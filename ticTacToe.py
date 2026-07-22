@@ -60,7 +60,7 @@ def askToPlayAgain(input_func=input, output_func=print):
         if response in ("n", "no"):
             return False
 
-        output_func("Please enter y or n.")
+        output_func("Please enter y/yes or n/no.")
 
 
 def playGame(input_func=input, output_func=print):
@@ -102,4 +102,5 @@ def playMultipleGames(input_func=input, output_func=print):
 
 
 if __name__ == "__main__":
-    playGame()
+    total_games = playMultipleGames()
+    print(f"Games played: {total_games}")
